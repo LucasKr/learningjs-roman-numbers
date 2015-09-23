@@ -1,28 +1,29 @@
 'use strict';
 
 var numberRepresentation = {
-  10000 : "_X",
-  9000 : "_IX",
-  5000 : "_V",
-  4000 : "_IV",
-  1000 : "M",
-  900 : "CM",
-  400 : "CD",
-  500 : "D",
-  100 : "C",
-  90 : "XC",
-  50 : "L",
-  40 : "XL",
-  10 : "X",
-  9 : "IX",
-  5 : "V",
-  4 : "IV",
   1 : "I",
+  4 : "IV",
+  5 : "V",
+  9 : "IX",
+  10 : "X",
+  40 : "XL",
+  50 : "L",
+  90 : "XC",
+  100 : "C",
+  500 : "D",
+  400 : "CD",
+  900 : "CM",
+  1000 : "M",
+  4000 : "_IV",
+  5000 : "_V",
+  9000 : "_IX",
+  10000 : "_X",
 };
 
 var numbers = Object.keys(numberRepresentation);
 
 var toRoman = function(number) {
+  numbers.sort(function(a,b) {return b-a;}); //Precisamos ir do maior para o menor
   var romanNumber = "";
   numbers.forEach(function(num) {
     while(number >= num) {
